@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_article, only: [:show, :edit, :update]
+  before_action :find_article, only: %i[show edit update destroy]
   def index
     @posts = Post.all
   end
@@ -18,6 +18,12 @@ class PostsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @post.destroy
+
+    redirect_to posts_path
   end
 
   def create
