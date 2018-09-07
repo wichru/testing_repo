@@ -8,3 +8,20 @@
   <strong>Text:</strong><br>
   <%= @post.text %>
 </p>
+
+<h2>Add comment</h2>
+
+<%= form_for @comment do |f| %>
+  <%= f.hidden_field :article_id %>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+</p>
+<p>
+<%= f.submit %>
+</p>
+<% end %>
