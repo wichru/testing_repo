@@ -7,6 +7,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.1'
 
 gem 'pg'
+gem 'pry'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
