@@ -12,13 +12,13 @@
 <h2>Add comment</h2>
 
 <%= form_for @comment do |f| %>
-  <%= f.hidden_field :article_id %>
+  <%= f.hidden_field :post_id %>
   <p>
-    <%= f.label :body %>
+    <%= f.label :commenter %>
     <%= f.text_field :commenter %>
   </p>
   <p>
-    <%= f.label :body %>
+    <%= f.label :comments %>
     <%= f.text_area :body %>
 </p>
 <p>

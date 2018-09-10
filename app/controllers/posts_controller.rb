@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :find_article, only: %i[show edit update destroy]
+  before_action :find_post, only: %i[show edit update destroy]
   def index
     @posts = Post.all
   end
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new(article: @article)
+    @comment = Comment.new
   end
 
   def edit; end
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
   private
 
-  def find_article
+  def find_post
     @post = Post.find(params[:id])
   end
 
