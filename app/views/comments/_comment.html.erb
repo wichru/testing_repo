@@ -6,4 +6,8 @@
   <strong>Comment:</strong>
   <%= comment.body %>
 </p>
+<%= link_to 'Delete',
+post_comment_path(@post, comment),
+method: :delete,
+data: { confirm: 'Are you sure' } %>
 <hr>
