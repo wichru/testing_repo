@@ -1,21 +1,27 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject { described_class.new }
+  subject do
+    described_class.new(title: 'Some title', text: 'Example text body')
+  end
 
   it 'is valid with valid attributes' do
-    subject.title = 'Example title'
-    subject.text = 'Some text body'
     expect(subject).to be_valid
   end
 
   it 'is not valid without a title' do
-    subject.text = 'sth'
+    subject.title = nil
     expect(subject).to_not be_valid
   end
 
   it 'is not valid without a text' do
-    subject.title = 'Some title'
+    subject.text = nil
     expect(subject).to_not be_valid
+  end
+
+  describe 'Associations' do
+    it { should have_many(:comments) }
   end
 end
