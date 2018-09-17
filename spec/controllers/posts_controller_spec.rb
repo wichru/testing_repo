@@ -38,4 +38,15 @@ RSpec.describe PostsController, type: :controller do
       expect(assigns(:post)).to eq(post)
     end
   end
+
+  describe 'DELETE #destroy' do
+    it 'deletes post' do
+      post = Post.create(title: 'Title', text: 'Please work!')
+      expect do
+        delete :destroy, params: { id: post }
+        post.to change(Post, :count).by(-1)
+      end
+      expect(response).to be_successful
+    end
+  end
 end
