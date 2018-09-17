@@ -9,9 +9,8 @@ RSpec.describe Comment, type: :model do
 
   describe 'Validations' do
     it 'is valid with valid attributes' do
-      post = create :post
-      comment = create :comment, post: post
-      expect(comment).to be_valid
+      post = Post.new(title: 'Some title', text: 'Example text body')
+      expect(post.valid?).to be_truthy
     end
 
     it 'is not valid without a body' do
@@ -22,6 +21,13 @@ RSpec.describe Comment, type: :model do
     it 'is not valid without a commenter' do
       subject.commenter = nil
       expect(subject).to_not be_valid
+    end
+  end
+
+  describe 'Accociations' do
+    it 'should belongs to the post' do
+      Comment.reflect_on_association(:post).macro.should == :belongs_to
+    # it { is_expected_to.belong_to(:post) }
     end
   end
 end
