@@ -26,7 +26,7 @@ RSpec.describe Post, type: :model do
   describe 'Associations' do
     it 'should have many comments' do
       Post.reflect_on_association(:comments).macro.should == :has_many
-    # it { is_expected_to.has_many(:comments) }
+      # it { is_expected_to.has_many(:comments) }
     end
   end
 end

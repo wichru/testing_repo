@@ -27,7 +27,7 @@ RSpec.describe Comment, type: :model do
   describe 'Accociations' do
     it 'should belongs to the post' do
       Comment.reflect_on_association(:post).macro.should == :belongs_to
-    # it { is_expected_to.belong_to(:post) }
+      # it { is_expected_to.belong_to(:post) }
     end
   end
 end
