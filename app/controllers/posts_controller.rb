@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc)
                  .paginate(page: params[:page], per_page: 7)
+
+    @posts = @posts.where('? = any(tags)', params[:q]) if params[:q].present?
   end
 
   def new
