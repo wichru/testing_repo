@@ -1,19 +1,21 @@
 <%= link_to 'Back', posts_path %>
  <%= render 'errors', resource: @post %>
+
  <%= form_for @post do |f| %>
-  <p>
+
+  <div class='form-group'>
     <%= f.label :title %>
-    <%= f.text_field :title %>
-  </p>
-  <p>
+    <%= f.text_field :title, class: 'form-control'%>
+  </div>
+  <div class='form-group'>
     <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
-  <p>
+    <%= f.text_area :text, class: 'form-control'%>
+  </div>
+  <div>
     <%= f.label :tags %>
-    <%= f.text_field :tags %>
-  </p>
-  <p>
-    <%= f.submit %>
+    <%= f.text_field :tags, class: 'form-control' %>
+  </div>
+  <div class='form-group'>
+    <%= f.submit nil, class: 'btn btn-outline-success' %>
   </p>
 <% end %>

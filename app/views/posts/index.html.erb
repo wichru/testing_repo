@@ -1,12 +1,16 @@
 <h1>Listing posts</h1>
 
-<p><%= link_to 'New post', new_post_path %>
+<p><%= link_to 'New post', new_post_path, class: "btn btn-primary" %>
 
+  <nav class='navbar navbar-light bg-light'>
+    <form class='form-inline'>
   <%= form_tag posts_path, method: :get do %>
-    <%= text_field_tag :q, '' %>
-    <%= submit_tag 'Search' %>
-    <%= link_to 'Clear', posts_path %>
+    <%= text_field_tag :q, '', class: 'form-control mr-sm-2' %>
+    <%= submit_tag 'Search', class: 'btn btn-outline-success' %>
+    <%= link_to 'Clear', posts_path, class: 'btn btn-outline-danger' %>
 <% end %>
+</form>
+</nav>
 
   <table>
     <tr>
