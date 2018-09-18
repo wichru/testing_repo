@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
+      session[:commenter] = @comment.commenter
+
       redirect_to @post
     else
       render 'posts/show'
