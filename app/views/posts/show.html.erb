@@ -8,9 +8,14 @@
   <strong>Text:</strong><br>
   <%= @post.text %>
 </p>
-
+<p>
+  <strong>Tags:</strong><br>
+  <%= @post.tags.join(', ') %>
+</p>
 <h2>Add comment</h2>
 <%= render 'comments/form' %>
 
 <h2>Comments</h2>
-<%= render @post.comments %>
+   <tbody>
+     <%= render @post.comments %>
+   </tbody>
