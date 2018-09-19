@@ -39,7 +39,11 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-
+    respond_to do |format|
+      format.js
+      format.html { redirect_to posts_path, notice: 'User was successfully destroy.' }
+      format.json { render json: @post, status: :ok, location: @post }
+    end
     redirect_to posts_path
   end
 

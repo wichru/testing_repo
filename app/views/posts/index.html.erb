@@ -25,7 +25,7 @@
         <td><%= post.text %></td>
         <td><%= link_to 'Show', post_path(post) %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Delete', post_path(post), method: :delete %></td>
+        <td><%= link_to 'Delete', post_path(post), method: :delete, remote: true, class: 'js-delete' %></td>
       </tr>
     <% end %>
   </table>
