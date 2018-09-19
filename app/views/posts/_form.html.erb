@@ -1,5 +1,5 @@
 <%= link_to 'Back', posts_path %>
- <%= render 'errors', resource: @post %>
+ <%= render 'errors', resource: @post, obj: @post %>
 
  <%= form_for @post do |f| %>
 
