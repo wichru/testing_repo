@@ -34,7 +34,7 @@ RSpec.describe PostsController, type: :controller do
       post = Post.create(title: 'Title', text: 'Please work!')
       get :edit, params: { id: post }
 
-      expect(response).to have_http_status(:success)
+      expect(response).to be_successful
       expect(assigns(:post)).to eq(post)
     end
   end
@@ -43,10 +43,18 @@ RSpec.describe PostsController, type: :controller do
     it 'deletes post' do
       post = Post.create(title: 'Title', text: 'Please work!')
       expect do
-        delete :destroy, params: { id: post }
+        delete :destroy, params: { id: post }, format: :json
         post.to change(Post, :count).by(-1)
       end
       expect(response).to be_successful
+    end
+
+    it 'destroy post and redirects' do
+      post = Post.create(title: 'Title', text: 'Please work!')
+      expect do
+        delete :destroy, params: { id: post }
+      end.to change(Post, :count).by(-1)
+      expect(response).to have_http_status(:redirect)
     end
   end
 end
