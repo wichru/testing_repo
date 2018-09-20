@@ -51,6 +51,10 @@ class PostsController < ApplicationController
 
   private
 
+  def check_article_owner
+    redirect_to posts_path if @post.user != current_user
+  end
+
   def find_post
     @post = Post.find(params[:id])
   end

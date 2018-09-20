@@ -15,7 +15,7 @@
 </p>
 <p>
   <strong>Author:</strong><br>
-  <%= @post.user.email %>
+  <%= @post.user&.email %>
 </p>
 <h2>Add comment</h2>
 <%= render 'comments/form' %>
