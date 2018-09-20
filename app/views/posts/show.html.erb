@@ -13,6 +13,10 @@
   <strong>Tags:</strong><br>
   <%= @post.tags.join(', ') %>
 </p>
+<p>
+  <strong>Author:</strong><br>
+  <%= @post.user.email %>
+</p>
 <h2>Add comment</h2>
 <%= render 'comments/form' %>
 

@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   validates :text, presence: true
 
   has_many :comments, dependent: :destroy
+  belongs_to :user
 
   def tags=(obj)
     if obj.is_a?(String)
