@@ -11,6 +11,12 @@
 
   <body>
     <div class='container'>
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+       <% if user_signed_in? %>
+          <%= current_user.email %>
+          <%= link_to 'SignOut', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger' %>
+       <% end %>
       <%= yield %>
     </div>
     <%= render 'layouts/footer' %>
